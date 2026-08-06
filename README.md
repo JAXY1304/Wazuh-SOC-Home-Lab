@@ -156,17 +156,19 @@ Wazuh-SOC-Home-Lab/
 
 # 📸 Screenshots
 
-Screenshots will be added as the project progresses.
+## 🖥️ Wazuh Dashboard
 
-- Dashboard
-- Agents
-- File Integrity Monitoring
-- SSH Brute Force Detection
-- Nmap Detection
-- Suricata Alerts
+![Wazuh Dashboard](screenshots/Dashboard.png)
+
+More screenshots will be added as the project progresses.
+
+- 👥 Agents
+- 📁 File Integrity Monitoring
+- 🔐 SSH Brute Force Detection
+- 🌐 Nmap Detection
+- 🛡️ Suricata Alerts
 
 ---
-
 # 📄 License
 
 This project is licensed under the MIT License.
