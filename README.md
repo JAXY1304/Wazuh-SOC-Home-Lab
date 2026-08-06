@@ -156,8 +156,6 @@ Wazuh-SOC-Home-Lab/
 
 # 📸 Screenshots
 
-# 📸 Screenshots
-
 ## 🖥️ Wazuh Dashboard
 
 ![Dashboard](screenshots/Dashboard.png)
