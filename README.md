@@ -156,18 +156,27 @@ Wazuh-SOC-Home-Lab/
 
 # 📸 Screenshots
 
+# 📸 Screenshots
+
 ## 🖥️ Wazuh Dashboard
 
-![Wazuh Dashboard](screenshots/Dashboard.png)
+![Dashboard](screenshots/Dashboard.png)
 
-More screenshots will be added as the project progresses.
+## 👥 Wazuh Agents
 
-- 👥 Agents
-- 📁 File Integrity Monitoring
-- 🔐 SSH Brute Force Detection
-- 🌐 Nmap Detection
-- 🛡️ Suricata Alerts
+![Wazuh agents](screenshots/agents.png)
 
+## 📁 File Integrity Monitoring
+
+![FIM](screenshots/FIM.png)
+
+## 🔐 SSH Brute Force Detection
+
+![SSH](screenshots/SSH-BruteForce.png)
+
+## 🛡️ Suricata IDS
+
+![Suricata](screenshots/Suricata.png)
 ---
 # 📄 License
 
