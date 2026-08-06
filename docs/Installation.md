@@ -4,7 +4,7 @@
 
 This guide explains how to build the Wazuh SOC Home Lab from scratch using Docker, Ubuntu, Kali Linux, and Suricata IDS.
 
-The goal is to create a practical Security Operations Center (SOC) lab for security monitoring, threat detection, and incident investigation.
+The objective is to create a practical Security Operations Center (SOC) lab for security monitoring, threat detection, incident investigation, and detection engineering.
 
 ---
 
@@ -16,15 +16,19 @@ The goal is to create a practical Security Operations Center (SOC) lab for secur
 - Kali Linux Virtual Machine
 - Wazuh 4.12
 - Suricata IDS
+- Internet Connection
 
 ---
 
-## 🌐 Network
+## 🌐 Network Topology
 
-- Docker Host
-- Ubuntu Agent
-- Kali Linux
-- Same Local Network
+All systems are connected to the same local network.
+
+| Device | Purpose |
+|---------|---------|
+| Windows 11 | Docker Host |
+| Ubuntu 24.04 | Wazuh Agent + Suricata |
+| Kali Linux | Attack Machine |
 
 ---
 
@@ -42,13 +46,20 @@ The goal is to create a practical Security Operations Center (SOC) lab for secur
 
 The installation is considered successful when:
 
-- Wazuh Dashboard is accessible
-- Ubuntu Agent is connected
-- Suricata is generating alerts
-- File Integrity Monitoring is working
+- Wazuh Dashboard is accessible.
+- Ubuntu Agent is connected.
+- Suricata is generating alerts.
+- File Integrity Monitoring (FIM) is working.
+- SSH authentication events are visible in Wazuh.
 
 ---
 
-## 🚀 Next
+## 🚀 Next Steps
 
-Detection engineering and threat simulations.
+After completing the installation:
+
+- Configure File Integrity Monitoring (FIM)
+- Perform SSH Brute Force simulation
+- Integrate Suricata IDS
+- Perform Nmap service enumeration
+- Investigate alerts using Wazuh Dashboard
