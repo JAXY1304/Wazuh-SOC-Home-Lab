@@ -1,0 +1,9 @@
+<group name="local,">
+
+  <rule id="100001" level="10">
+    <if_sid>5710</if_sid>
+    <description>Multiple SSH login failures detected</description>
+    <group>authentication_failed,</group>
+  </rule>
+
+</group>
