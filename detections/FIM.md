@@ -1,75 +1,72 @@
 # File Integrity Monitoring (FIM)
 
-## 📌 Objective
+## Objective
 
-The objective of this detection is to monitor file creation, modification, and deletion events on the Ubuntu endpoint using Wazuh File Integrity Monitoring (FIM).
+Detect unauthorized file creation, modification, and deletion on the Ubuntu endpoint using Wazuh File Integrity Monitoring (FIM).
 
----
+## Lab Environment
 
-# 🖥️ Environment
+| Component | Details |
+|---|---|
+| Endpoint | Ubuntu 24.04 |
+| Agent | Wazuh Agent 4.12.0 |
+| Manager | Wazuh Manager 4.12.0 |
+| Monitored Directory | `/home/admin` |
+| Monitoring Mode | Real-time |
 
-- Ubuntu 24.04
-- Wazuh Agent
-- Wazuh Manager 4.12
-- Docker Deployment
+## Configuration
 
----
+The Wazuh agent monitors `/home/admin` using real-time FIM.
 
-# 🧪 Test Procedure
-
-A test file was created on the Ubuntu endpoint.
-
-```bash
-touch ~/FIM-Test.txt
+```xml
+<directories realtime="yes">/home/admin</directories>
 ```
 
-The file was then deleted.
+## Test
 
-```bash
-rm ~/FIM-Test.txt
-```
+A test file was created, modified, deleted, and recreated to validate FIM detection.
 
----
+## Detection Results
 
-# 🚨 Detection
+### File Modification
 
-Wazuh successfully generated alerts for:
+- Rule ID: `550`
+- Level: `7`
+- Description: `Integrity checksum changed`
+- Event: `modified`
 
-- File Created
-- File Deleted
+Detected changes included file size, modification time, MD5, SHA1, and SHA256.
 
-The alerts were visible in the Wazuh Dashboard under File Integrity Monitoring.
+### File Deletion
 
----
+- Rule ID: `553`
+- Level: `7`
+- Description: `File deleted`
+- Event: `deleted`
 
-# 📊 Detection Result
+### File Creation
 
-| Event | Status |
-|--------|--------|
-| File Created | ✅ |
-| File Deleted | ✅ |
-| Wazuh Alert Generated | ✅ |
+- Rule ID: `554`
+- Level: `5`
+- Description: `File added to the system`
+- Event: `added`
 
----
+## Evidence
 
-# 📷 Evidence
+Wazuh Manager alerts confirmed events for `/home/admin/wazuh-fim-test.txt`.
 
-See:
+Event flow:
 
-```
-screenshots/FIM.png
-```
+File Created -> File Modified -> File Deleted -> File Recreated
 
----
+## Security Value
 
-# 🎯 MITRE ATT&CK
+- Unauthorized file modification detection
+- Suspicious file creation detection
+- File deletion detection
+- Monitoring of important files
+- Supporting evidence for persistence investigations
 
-| Technique | ID |
-|-----------|----|
-| File and Directory Discovery | T1083 |
+## Conclusion
 
----
-
-# ✅ Conclusion
-
-Wazuh File Integrity Monitoring successfully detected file system changes on the Ubuntu endpoint and generated security alerts for investigation.
+The Ubuntu endpoint successfully detected real-time file creation, modification, and deletion events through Wazuh FIM and forwarded the resulting alerts to the Wazuh Manager.
